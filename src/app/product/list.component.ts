@@ -44,12 +44,12 @@ export class ListComponent implements OnInit {
 
   onDelete(id: number): void {
     Swal.fire({
-      title: 'Are you sure?',
-      text: 'You cannot undo',
+      title: '¿Esta seguro?',
+      text: 'No puedes deshacerlo',
       icon: 'warning',
       showCancelButton: true,
       confirmButtonText: 'OK',
-      cancelButtonText: 'Cancel'
+      cancelButtonText: 'Cancelar'
     }).then((result) => {
       if (result.value) {
         this.productService.delete(id).subscribe(
@@ -63,8 +63,8 @@ export class ListComponent implements OnInit {
         );
       } else if (result.dismiss === Swal.DismissReason.cancel) {
         Swal.fire(
-          'canceled',
-          'product not deleted',
+          'cancelado',
+          'producto no eliminado',
           'error'
         )
       }
