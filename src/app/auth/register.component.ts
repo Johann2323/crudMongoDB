@@ -4,6 +4,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { TokenService } from '../services/token.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-register',
@@ -15,6 +16,9 @@ export class RegisterComponent implements OnInit {
   username!: string;
   email!: string;
   password!: string;
+  cedula!:string;
+  direccion!:string
+  estado!:boolean
 
   constructor(
     private authService: AuthService,
@@ -27,11 +31,16 @@ export class RegisterComponent implements OnInit {
   }
 
   onRegister(): void {
-    const dto = new CreateUserDto(this.username, this.email, this.password);
+    const dto = new CreateUserDto(this.username, this.email, this.password,this.cedula,this.direccion,this.estado);
     this.authService.register(dto).subscribe(
       data => {
         this.toast.success(data.message, 'OK', { timeOut: 3000, positionClass: 'toast-top-center'});
         this.router.navigate(['/login']);
+        Swal.fire(
+          'Usuario Creado',
+          'Gracias por registrarse',
+          'success'
+        )
       },
       err => {
         this.toast.error(err.error.message, 'Error', { timeOut: 3000, positionClass: 'toast-top-center'});

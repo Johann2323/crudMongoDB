@@ -12,6 +12,41 @@
                     <input type="number" class="form-control" id="price" name="price" placeholder="Precio"
                         autocomplete="off" required [(ngModel)]="product.price">
                 </div>
+
+                <div class="mb-3">
+                    <input type="text" class="form-control" id="titulo" name="titulo" placeholder="Titulo"
+                        autocomplete="off" required [(ngModel)]="product.titulo">
+                </div>
+                <div class="mb-3">
+                    <input type="text" class="form-control" id="autor" name="autor" placeholder="Autor"
+                        autocomplete="off" required [(ngModel)]="product.autor">
+                </div>
+                <div class="mb-3">
+                    <input type="text" class="form-control" id="editorial" name="editorial" placeholder="editorial"
+                        autocomplete="off" required [(ngModel)]="product.editorial">
+                </div>
+                <div class="mb-3">
+                    <input type="text" class="form-control" id="precio" name="precio" placeholder="precio"
+                        autocomplete="off" required [(ngModel)]="product.precio">
+                </div>
+                <div class="mb-3">
+                    <input type="text" class="form-control" id="stock" name="stock" placeholder="stock"
+                        autocomplete="off" required [(ngModel)]="product.stock">
+                </div>
+                <div class="mb-3">
+                    <input type="text" class="form-control" id="descripcion" name="descripcion" placeholder="descripcion"
+                        autocomplete="off" required [(ngModel)]="product.descripcion">
+                </div>
+                <div class="mb-3">
+                    <input type="text" class="form-control" id="categoria" name="categoria" placeholder="categoria"
+                        autocomplete="off" required [(ngModel)]="product.categoria">
+                </div>
+                <div class="mb-3">
+                    <input type="text" class="form-control" id="imagenPhat" name="imagenPhat" placeholder="imagenPhat"
+                        autocomplete="off" required [(ngModel)]="product.imagenPhat">
+                </div>
+
+
                 <button class="btn btn-outline-success w-100 mb-3" [disabled]="!f.valid">
                         <i class="far fa-edit"></i> Actualizar
                 </button>

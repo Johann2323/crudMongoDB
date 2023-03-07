@@ -4,6 +4,7 @@ import { ToastrService } from 'ngx-toastr';
 import { TokenService } from './../services/token.service';
 import { AuthService } from './../services/auth.service';
 import { Component, OnInit } from '@angular/core';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-login',
@@ -31,6 +32,11 @@ export class LoginComponent implements OnInit {
       data => {
         this.tokenService.setToken(data.token);
         this.router.navigate(['/home']);
+        Swal.fire(
+          'Hola de nuevo',
+          'Bienvenido querido '+this.username,
+          'success'
+        )
       },
       err => {
         this.toast.error(err.error.message, 'Error', { timeOut: 3000, positionClass: 'toast-top-center'});

@@ -13,6 +13,16 @@ export class CreateComponent implements OnInit {
 
   name!: string;
   price!: number;
+  titulo!: string;
+  autor!: string;
+  editorial!: string;
+  precio!: number;
+  stock!: number;
+  descripcion!: string;
+  categoria!: string;
+  imagenPhat!: string;
+  imagenURL!: string;
+
 
   constructor(
     private productService: ProductService,
@@ -24,7 +34,14 @@ export class CreateComponent implements OnInit {
   }
 
   onCreate(): void {
-    const product = new Product(this.name, this.price);
+    const product = new Product(this.name, this.price,this.titulo,
+      this.autor,this.editorial,
+      this.precio,
+      this.stock,
+      this.descripcion,
+      this.categoria,
+      this.imagenPhat,
+      this.imagenURL);
     this.productService.create(product).subscribe(
       data => {
         this.toast.success(data.message, 'OK', { timeOut: 3000, positionClass: 'toast-top-center'});
